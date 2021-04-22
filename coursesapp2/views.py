@@ -47,7 +47,8 @@ def comments(request,id):
     return render(request,"comments.html", context)
 def commcreate(request,id):
     course=Course.objects.get(desc_id=id)
-    course.comments.comment=request.POST['comment']
+    comment=Comment.objects.create(comment=request.POST['comment'],course=course)
+    print(comment)
     return redirect("/course/comments/"+str(id))
 
 

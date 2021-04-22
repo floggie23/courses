@@ -27,9 +27,7 @@ class Course(models.Model):
 
 class Comment(models.Model):
     comment = models.TextField()
-    commentss = models.ForeignKey(Course, related_name = 'comments', on_delete = models.CASCADE )
+    course = models.ForeignKey(Course, related_name = 'comments', on_delete = models.CASCADE )
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at= models.DateTimeField(auto_now = True) 
-    def __repr__(self):
-           return f"<Movie object: {self.comment} ({self.id})>"
 
